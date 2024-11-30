@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropertyDetail from "./PropertyDetail/PropertyDetail";
 import ApartmentCard from "../../components/Card/Card";
 import { apartmentsData } from "../../components/Data/Data";
-import daisyui from "daisyui";
+// import daisyui from "daisyui";
 
 const Property = () => {
   const [filteredApartments, setFilteredApartments] = useState(apartmentsData);
