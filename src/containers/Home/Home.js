@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import ApartmentCard from "../../components/Card/Card";
+import CountryModal from "../../components/SearchTab/SearchTab";
 import PropertyDetail from "../Property/PropertyDetail/PropertyDetail";
-
 import Hero from "./components/Hero";
 import Parameters from "./components/Parameters"
 import TopCities from "./components/TopCities";
@@ -18,11 +17,16 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredApartments, setFilteredApartments] = useState(apartmentsData);
   const [selectedApartment, setSelectedApartment] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleChange = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchTerm(query);
   };
+  
+  const handleClick= () => {
+    setIsModalOpen(true);
+  }
 
   const handleSearch = () => {
     // Filter logic
@@ -38,8 +42,8 @@ const Home = () => {
 
   return (
     <div className="flex flex-col gap-10">
-      <Hero apartmentsData={apartmentsData} handleSearch={handleSearch} searchTerm = {searchTerm} handleChange = {handleChange} bannerVideo={bannerVideo}/>
-      
+      <Hero apartmentsData={apartmentsData} handleSearch={handleSearch} searchTerm={searchTerm} handleChange={handleChange} bannerVideo={bannerVideo} handleClick={handleClick} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+
       <Parameters />
 
       <TopCities />
@@ -75,6 +79,7 @@ const Home = () => {
           onClose={() => setSelectedApartment(null)}
         />
       )}
+      
     </div>
   );
 };

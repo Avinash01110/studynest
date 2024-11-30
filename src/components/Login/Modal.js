@@ -1,6 +1,6 @@
 // components/AuthModal.jsx
 import React, { useState, useEffect, useRef } from "react";
-import { IoEye, IoEyeOff, IoEyeOffOutline } from "react-icons/io5";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const AuthModal = ({ isOpen, onClose }) => {
   const [isSignUp, setIsSignUp] = useState(false); // Toggle between Login and SignUp
